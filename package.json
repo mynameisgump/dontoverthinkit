@@ -1,0 +1,31 @@
+{
+  "name": "monitors",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "bloom"
+  ],
+  "main": "index.html",
+  "scripts": {
+    "dev": "bunx --bun vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "@pmndrs/assets": "1.6.0",
+    "@pmndrs/branding": "0.0.8",
+    "@react-three/drei": "9.101.0",
+    "@react-three/fiber": "8.9.1",
+    "@react-three/postprocessing": "2.9.2",
+    "@types/three": "0.146.0",
+    "maath": "0.4.2",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "three": "0.146.0"
+  },
+  "devDependencies": {
+    "vite": "^2.0.0",
+    "@vitejs/plugin-react": "^1.0.0"
+  }
+}
+
