@@ -1,10 +1,9 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
 
 export default defineConfig({
-  plugins: [
-    react()
-  ],
+  plugins: [react()],
+  base: '/dontoverthinkit',
   resolve: {
     alias: {
       '@components': '/src/components',
@@ -12,10 +11,9 @@ export default defineConfig({
     }
   },
   build: {
-    outDir: 'build',
+    outDir: 'build'
   },
   server: {
-    port: 5173,
-  },
-});
-
+    port: 5173
+  }
+})
