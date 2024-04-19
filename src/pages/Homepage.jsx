@@ -102,9 +102,9 @@ export default function Homepage() {
           SPONSOR
         </Button>
         <group position={[-0, -1, 0]}>
-          <Instances>
+          {/* <Instances>
             <Computers scale={0.5} />
-          </Instances>
+          </Instances> */}
           <mesh receiveShadow rotation={[-Math.PI / 2, 0, 0]}>
             <planeGeometry args={[50, 50]} />
             <MeshReflectorMaterial
@@ -165,7 +165,7 @@ export default function Homepage() {
 }
 
 function Whiteboard(props) {
-  const { scene } = useGLTF("./whiteboard.glb");
+  const { scene } = useGLTF("./whiteboard_smol.glb");
   return <primitive object={scene} {...props} />;
 }
 
