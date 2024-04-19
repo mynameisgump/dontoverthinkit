@@ -1,5 +1,5 @@
 import { useMemo, useEffect, useState } from "react";
-import { Text, Billboard, useFBX, MeshReflectorMaterial, BakeShadows } from "@react-three/drei";
+import { Text, Billboard, useGLTF, useFBX, MeshReflectorMaterial, BakeShadows } from "@react-three/drei";
 import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { useSpring, animated, config } from "@react-spring/three";
 import { EffectComposer, Bloom, DepthOfField } from "@react-three/postprocessing";
@@ -21,8 +21,8 @@ function Background() {
 
 function Button({ children, onClick, ...props }) {
   const [hovering, setHover] = useState(false);
-  const fbx = useFBX("./tape.fbx");
-  const scene = useMemo(() => fbx.clone(), [fbx]);
+  const { scene } = useGLTF("./tape.glb");
+  const sceneClone = useMemo(() => scene.clone(), [scene]);
   const { scale } = useSpring({ scale: hovering ? 1.1 : 0.9, config: config.stiff });
   const { rotation } = useSpring({ rotation: hovering ? [0, 0, 0] : [0, Math.PI / 8, 0], config: config.stiff });
   useEffect(() => {
@@ -44,7 +44,7 @@ function Button({ children, onClick, ...props }) {
       onPointerOut={() => setHover(false)}
     >
       <animated.mesh scale={scale} rotation={rotation}>
-        <primitive scale={0.0035} object={scene} />
+        <primitive scale={0.35} object={sceneClone} />
         <Text font="./Marker.ttf" position={[0, 0.075, 0.31]} fontSize={0.1} color={"black"} letterSpacing={0.1}>
           {children}
         </Text>
