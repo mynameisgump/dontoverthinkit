@@ -120,7 +120,7 @@ export default function Homepage() {
               metalness={0.8}
             />
           </mesh>
-          <Whiteboard scale={0.008} position={[0, 0, 0.2]} />
+          <Whiteboard scale={0.23} position={[0, 0, 1.1]} />
         </group>
         <EffectComposer disableNormalPass>
           <Bloom luminanceThreshold={0} mipmapBlur luminanceSmoothing={0.0} intensity={1} />
@@ -165,8 +165,8 @@ export default function Homepage() {
 }
 
 function Whiteboard(props) {
-  const gltf = useFBX("./whiteboard.fbx");
-  return <primitive object={gltf} {...props} />;
+  const { scene } = useGLTF("./whiteboard.glb");
+  return <primitive object={scene} {...props} />;
 }
 
 function CameraRig() {
