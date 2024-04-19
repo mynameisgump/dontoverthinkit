@@ -5,6 +5,7 @@ import { useSpring, animated, config } from "@react-spring/three";
 import { EffectComposer, Bloom, DepthOfField } from "@react-three/postprocessing";
 import { easing } from "maath";
 import * as THREE from "three";
+import { Perf } from "r3f-perf";
 
 import { Instances, Computers } from "./Computers";
 
@@ -74,6 +75,7 @@ export default function Homepage() {
         <color attach="background" args={["gray"]} />
         <hemisphereLight intensity={1.0} groundColor="black" />
         <spotLight position={[0, 2, 5]} intensity={10} angle={0.3} penumbra={1} castShadow />
+        <Perf></Perf>
         {/* spotlight indicator */}
         {/* <mesh position={[0, 2, 5]}>
         <coneGeometry args={[0.1, 0.3, 4]} />
